@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Sio_Engine_process</RootNamespace>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Graph.Core" Version="1.24.0" />
+    <PackageReference Include="Microsoft.SharePointOnline.CSOM" Version="16.1.20720.12000" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web.Services">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Web.Services.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

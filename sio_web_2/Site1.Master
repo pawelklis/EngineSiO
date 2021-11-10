@@ -1,0 +1,173 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="Site1.master.vb" Inherits="sio_web_2.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="StyleSheet1.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body style="margin: 0px;">
+    <form id="form1" runat="server">
+
+        
+
+<asp:ScriptManager runat="server"></asp:ScriptManager>
+        <div class="topbar" style="position:relative;">
+            <span class="texts-fonts-bold" >System Informacji Operacyjnej</span> <asp:LinkButton ID="lnkOrgZone" OnClick="lnkOrgZone_Click" runat="server" ForeColor="White" Font-Overline="false" style="position:absolute;bottom:0px;left:300px;">LinkButton</asp:LinkButton>
+            <div style="float: right;">
+                <div class="loginContainer" id="loginContainer" runat="server">Paweł Klis</div>
+                <ajaxToolkit:DropDownExtender
+                    DropArrowBackColor="#1a2732"
+                    HighlightBackColor="#1a2732"
+                    ID="DropDownExtender1" runat="server" DropDownControlID="Panel1" TargetControlID="loginContainer">
+                </ajaxToolkit:DropDownExtender>
+                <asp:Panel ID="Panel1" CssClass="LoginContainerPanel" runat="server">
+                <asp:Button ID="btnLogOut" CssClass="btn-success background-dark btnMenu  "  OnClick="btnLogOut_Click" runat="server" Text="Wyloguj" />
+                </asp:Panel>
+
+
+                <ajaxToolkit:DropShadowExtender ID="DropShadowExtender1" runat="server" TargetControlID="Panel1" />
+            </div>
+        </div>
+
+        <div class="mainpage">
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server" ><ContentTemplate>
+            <div class="sidebar">
+
+                <div class="UserContainer">
+                    <img src="../images/icons/usr2.PNG" />
+                    <br />
+
+                    <ajaxToolkit:Accordion ID="MyAccordion" runat="server" SelectedIndex="-1"
+                        HeaderCssClass=" with-94  background-Black-to-white paddings-5px cursors-pointer"
+                        HeaderSelectedCssClass="  with-94 background-Black-to-white paddings-5px cursors-pointer "
+                        ContentCssClass="accordionContent" FadeTransitions="false" FramesPerSecond="40" TransitionDuration="250" AutoSize="None" RequireOpenedPane="false"
+                        SuppressHeaderPostbacks="true" Style="width: 100%;">
+
+                        <Panes>
+                            <ajaxToolkit:AccordionPane ID="AccordionPane1" runat="server">
+                                <Header>
+                                    <asp:Label ID="lbUserName" ForeColor="White" runat="server" Text="name"></asp:Label>
+                                    <br />
+                                    <asp:Label ID="lbuserTitle" Font-Size="XX-Small" ForeColor="White" runat="server" Text="name"></asp:Label>
+
+
+                                </Header>
+
+                                <Content>
+                                    <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+                                </Content>
+                            </ajaxToolkit:AccordionPane>
+
+                            <ajaxToolkit:AccordionPane ID="AccordionPane2" runat="server">
+                                <Header>
+                                    <asp:Label ID="Label1" ForeColor="White" runat="server" Text="Konfiguracja"></asp:Label>
+
+                                </Header>
+
+                                <Content>
+                      
+                                    <asp:Button ID="Button1" CssClass="btn-success background-dark btnMenu  " OnClick="Button1_Click" runat="server" Text="Jednostki Organizacyjne" />
+                                    <asp:Button ID="Button2" CssClass="btn-success background-dark btnMenu  " OnClick="Button2_Click"  runat="server" Text="Komórki Organizacyjne" />
+                                    <asp:Button ID="Button3" CssClass="btn-success background-dark btnMenu  " OnClick="Button3_Click"  runat="server" Text="Użytkownicy" />
+                                    <asp:Button ID="Button4" CssClass="btn-success background-dark btnMenu  " OnClick="Button4_Click" runat="server" Text="Operacje" />
+                                    <asp:Button ID="Button5" CssClass="btn-success background-dark btnMenu  " OnClick="Button5_Click" runat="server" Text="Kategorie informacji" />
+                                    <asp:Button ID="Button6" CssClass="btn-success background-dark btnMenu  " OnClick="Button6_Click" runat="server" Text="Informacje" />
+                                    <asp:Button ID="Button7" CssClass="btn-success background-dark btnMenu  " OnClick="Button7_Click" runat="server" Text="Import danych" />
+                                    <asp:Button ID="Button8" CssClass="btn-success background-dark btnMenu  " OnClick="Button8_Click" runat="server" Text="Powiadomienia" />
+                                    <asp:Button ID="Button9" CssClass="btn-success background-dark btnMenu  " OnClick="Button9_Click" runat="server" Text="Odbiorcy powiadomień" />
+                                    <asp:Button ID="Button10" CssClass="btn-success background-dark btnMenu  " OnClick="Button10_Click" runat="server" Text="Lista powiadomień" />
+
+
+                                      
+                                </Content>
+                            </ajaxToolkit:AccordionPane>
+                        </Panes>
+                    </ajaxToolkit:Accordion>
+                </div>
+
+
+            </div>
+</ContentTemplate></asp:UpdatePanel>
+            <div class="contentpage" style="overflow: auto;">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+
+    <iframe src="wbnots.aspx" width="0" height="0" style="visibility:hidden;"></iframe>
+        </div>
+
+     
+
+     <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+        <ProgressTemplate>
+            <div class="modalload">
+                <div class="center">
+                    <img alt="" src="../loader.gif" />
+                </div>
+            </div>
+        </ProgressTemplate>
+    </asp:UpdateProgress>
+
+
+        <script>
+        
+
+        </script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#loadingImage').hide();
+            document.getElementById('load').style.visibility = 'hidden';
+        });
+
+    </script>
+
+        <table id="tb1" runat="server">
+        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+            <ContentTemplate>
+          
+            
+
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
+          
+
+
+
+
+
+
+  
+
+    </form>
+</body>
+</html>
